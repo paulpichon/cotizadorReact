@@ -13,7 +13,7 @@ function App() {
 		//colocando yun signo de mas(+) convertimos el string en un numero
 		//un signo de más(+) es igual a poner parseInt()
 		//tambien se puede poner Number()
-		console.log(+e.target.value);
+		setCantidad(+e.target.value);
 	}
 
 	return (
@@ -25,6 +25,8 @@ function App() {
 				className="w-full h-6 bg-gray-200 accent-lime-500 hover:accent-lime-600"
 				onChange={handleChange}
 			/>
+
+			<p className='text-center my-10 text-5xl font-extrabold text-indigo-600'>{cantidad}</p>
 
 		</div>
 	)
