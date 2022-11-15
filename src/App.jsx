@@ -1,6 +1,14 @@
+//componente propio de REACT
+import { useState } from 'react';
 import Header from "./components/Header";
 
 function App() {
+
+	//useState
+	//destructuring de un arreglo
+	const [cantidad, setCantidad] = useState(10000);
+
+	console.log( cantidad );
 
 	return (
 		<div className="my-20 max-w-lg mx-auto bg-white shadow p-10">
