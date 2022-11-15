@@ -9,9 +9,13 @@ import { formatearDinero } from "./helpers";
 
 function App() {
 
+	//state para el input RANGE
 	//useState
 	//destructuring de un arreglo
 	const [cantidad, setCantidad] = useState(10000);
+	//state para el input select
+	//como el primer option del select es 6, le ponemos en el usestate(6)
+	const [meses,setMeses] = useState(6);
 
 	const MIN = 0;
 	const MAX = 20000;
@@ -96,6 +100,8 @@ function App() {
 
 			<select
 				className='mt-5 w-full p-2 bg-white border border-gray-300 rounded-lg text-center text-xl font-bold text-gray-500'
+				value={meses}
+				onChange={e => setMeses(+e.target.value)}
 			>
 				<option value="6">6 meses</option>
 				<option value="12">12 meses</option>
