@@ -8,6 +8,11 @@ function App() {
 	//destructuring de un arreglo
 	const [cantidad, setCantidad] = useState(10000);
 
+	const MIN = 0;
+	const MAX = 20000;
+	const STEP = 100;
+
+
 	//funcion para el onChange
 	function handleChange(e) {
 		//colocando yun signo de mas(+) convertimos el string en un numero
@@ -24,6 +29,10 @@ function App() {
 				type='range' 
 				className="w-full h-6 bg-gray-200 accent-lime-500 hover:accent-lime-600"
 				onChange={handleChange}
+				min={MIN}
+				max={MAX}
+				step={STEP}
+				value={cantidad}
 			/>
 
 			<p className='text-center my-10 text-5xl font-extrabold text-indigo-600'>{cantidad}</p>
