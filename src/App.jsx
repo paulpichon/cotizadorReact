@@ -1,11 +1,11 @@
 //componente propio de REACT
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 //importat el header
 import Header from "./components/Header";
 //importar el BUTTON
 import Button from "./components/Button";
 //formatar dinero
-import { formatearDinero } from "./helpers";
+import { formatearDinero, calcularTotalPagar } from "./helpers";
 
 function App() {
 
@@ -16,6 +16,18 @@ function App() {
 	//state para el input select
 	//como el primer option del select es 6, le ponemos en el usestate(6)
 	const [meses,setMeses] = useState(6);
+	//state para el total a pagar
+	const [total, setTotal] = useState(0);
+
+
+	//USE-EFFECT
+	useEffect(() => {
+		//
+		const resultadoTotalPagar = calcularTotalPagar(cantidad, meses);
+		
+		setTotal( resultadoTotalPagar );
+	}, [cantidad, meses]);
+
 
 	const MIN = 0;
 	const MAX = 20000;
@@ -114,7 +126,7 @@ function App() {
 				</h2>
 
 				<p className='text-xl text-gray-500 text-center font-bold'>{meses} Meses</p>
-				<p className='text-xl text-gray-500 text-center font-bold'>Total a pagar</p>
+				<p className='text-xl text-gray-500 text-center font-bold'>{formatearDinero(total)} Total a pagar</p>
 				<p className='text-xl text-gray-500 text-center font-bold'>Mensualidades</p>
 
 			</div>
